@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => LoginCubit()),
-        BlocProvider(create: (_) => ProductCubit()), // Corrected this line
+        BlocProvider(create: (_) => ProductCubit()), 
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-/// Represents the different states for fetching products.
+
 abstract class ProductState {}
 
 class ProductInitial extends ProductState {}
@@ -52,7 +52,7 @@ class Product {
   }
 }
 
-/// Bloc (Cubit) for managing product fetching
+
 class ProductCubit extends Cubit<ProductState> {
   ProductCubit() : super(ProductInitial());
 

@@ -15,7 +15,7 @@ class DashboardView extends StatelessWidget {
           title: const Text("Dashboard"),
           actions: [
             IconButton(
-              icon: const Text("Logout"),
+              icon: const Icon(Icons.person),
               onPressed: () => _showLogoutDialog(context),
             ),
           ],
@@ -114,30 +114,27 @@ Widget _buildProductItem(Product product) {
                   ),
                 ),
               ),
-              // Shopping Cart Icon at upper right
+              // Shopping Cart Icon at upper right with "100"
               Positioned(
                 top: 8,
                 right: 8,
-                child: GestureDetector(
-                  onTap: () {
-                    // TODO: Add cart functionality
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.all(6),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.8),
-                      shape: BoxShape.circle,
+                child: Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(6),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.8),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.shopping_cart,
+                        color: Colors.deepPurple,
+                        size: 18,
+                      ),
                     ),
+                    const SizedBox(width: 5),
                     
-                    child: const Icon(
-                      Icons.shopping_cart,
-                      color: Colors.deepPurple,
-                      size: 18,
-                      
-                    ),
-                    
-                  ),
-                  
+                  ],
                 ),
               ),
             ],
@@ -170,10 +167,20 @@ Widget _buildProductItem(Product product) {
             style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
           ),
         ),
+        // Category Chip
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Chip(
+            backgroundColor: Colors.deepPurple[100],
+            label: Text(
+              product.category.toUpperCase(),
+              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
       ],
     ),
   );
 }
-
 
 }
